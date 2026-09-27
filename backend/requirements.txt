@@ -1,0 +1,11 @@
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30
+sqlalchemy[asyncio]>=2.0.36
+asyncpg>=0.30
+pgvector>=0.3.6
+pydantic>=2.9
+pydantic-settings>=2.6
+openai>=1.55
+
+# 仅当使用本地 embedding 模式（CHALDEA_EMBEDDING_PROVIDER=local）时才需要安装：
+# sentence-transformers>=3.2

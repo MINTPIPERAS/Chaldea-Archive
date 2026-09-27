@@ -1,0 +1,20 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: chaldea-db
+    environment:
+      POSTGRES_USER: chaldea
+      POSTGRES_PASSWORD: chaldea
+      POSTGRES_DB: chaldea
+    ports:
+      - "5432:5432"
+    volumes:
+      - chaldea_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chaldea -d chaldea"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  chaldea_pgdata:
